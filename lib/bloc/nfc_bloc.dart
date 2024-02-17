@@ -18,6 +18,7 @@ class NFCBloc extends Cubit<NfcTag?> {
       /// Start Session
 
       await nfcManager.startSession(
+        pollingOptions: {NfcPollingOption.iso14443, NfcPollingOption.iso15693},
         alertMessage:
             "Tap and Hold your NFC card (between 10s) close to the back or front of your phone, usually near the camera. Restart the app if it doesn't work.",
         onDiscovered: (NfcTag tag) async {
